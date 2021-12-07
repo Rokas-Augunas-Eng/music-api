@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import SpotifyWebApi from "spotify-web-api-node";
+
 import useAuth from "../components/useAuth";
 import TrackList from "../components/TrackLIst";
 import Player from "../components/Player";
-import SpotifyWebApi from "spotify-web-api-node";
-import axios from "axios";
+import "./Dashboard.css";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "9531b419420d41b68c547839eda55aa5",
@@ -57,18 +58,21 @@ export default function Dashboard({ code }) {
 
   return (
     <div>
-      <input
-        type="search"
-        placeholder="Search Songs/Artists"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <div className="search-results">
+      <div className="dashboard-search-container">
+        <input
+          type="search"
+          placeholder="Search Songs/Artists"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="dashboard-search"
+        />
+      </div>
+      <div className="dashboard-search-results">
         {searchResults.map((track) => (
           <TrackList track={track} key={track.uri} chooseTrack={chooseTrack} />
         ))}
       </div>
-      <div className="player">
+      <div className="dashboard-player">
         <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
       </div>
     </div>
