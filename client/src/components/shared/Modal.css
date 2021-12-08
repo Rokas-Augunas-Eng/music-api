@@ -24,15 +24,7 @@
   transform: translate(-50%, 50%);
 }
 
-.modal-header {
-  font-weight: 500;
-  margin-bottom: 0;
-  font-size: 2rem;
-  text-align: center;
-  margin: 2rem 0 2rem;
-}
-
-.button-container {
+.modal-button-container {
   display: flex;
   flex-direction: row;
   margin: 1rem auto 0;

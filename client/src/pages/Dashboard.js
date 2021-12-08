@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 
-import useAuth from "../components//shared/useAuth";
+import useAuth from "../components/shared/useAuth";
 import TrackList from "../components/music/TrackList";
 import Player from "../components/music/Player";
 import "./Dashboard.css";
@@ -11,6 +11,7 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 export default function Dashboard({ code }) {
+  console.log(code);
   const accessToken = useAuth(code);
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);

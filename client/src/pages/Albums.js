@@ -2,20 +2,25 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 import AlbumList from "../components/music/AlbumList";
+import Topbar from "../components/shared/TopBar";
 
-export default function Albums() {
+export default function Albums({ code }) {
   const [loadedAlbums, setLoadedAlbums] = useState([]);
 
-  useEffect(async () => {
-    const result = await axios(
-      "https://itunes.apple.com/us/rss/topalbums/limit=100/json"
-    );
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        "https://itunes.apple.com/us/rss/topalbums/limit=100/json"
+      );
 
-    setLoadedAlbums(result.data.feed.entry);
+      setLoadedAlbums(result.data.feed.entry);
+    };
+    fetchData();
   }, []);
 
   return (
     <div>
+      <Topbar code={code} />
       <AlbumList loadedAlbums={loadedAlbums} />
     </div>
   );

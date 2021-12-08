@@ -13,6 +13,7 @@ export default function AlbumItem(props) {
 
   return (
     <div>
+      <div className="album-item-index">{props.index}</div>
       <li className="album-item-wrapper">
         <div className="album-item-container">
           <div className="album-item-image">
@@ -21,9 +22,6 @@ export default function AlbumItem(props) {
           <div className="album-item-text-container">
             <div className="album-item-album-name">{props.albumName}</div>
             <div className="album-item-artist">{props.artist}</div>
-            {/* <div className="album-item-category-year-container">
-              {props.category} · {props.year}
-            </div> */}
           </div>
           <button onClick={openModal} className="" type="button"></button>
         </div>
