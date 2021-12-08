@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Albums from "./pages/Albums";
 import Dashboard from "./pages/Dashboard";
-import Login from "./components/Login";
+import Login from "./components/shared/Login";
 import NotFound from "./pages/NotFound";
 
 const code = new URLSearchParams(window.location.search).get("code");

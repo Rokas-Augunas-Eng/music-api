@@ -1,0 +1,52 @@
+.background {
+  -webkit-animation: fadeIn ease-in 0.3;
+  animation: fadeIn ease-in 0.3;
+  background-color: rgba(96, 96, 96, 0.5);
+  height: 100vh;
+  left: 0;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
+.modal-container {
+  margin: 0 auto;
+  background-color: white;
+  bottom: 50%;
+  color: #1e5d84;
+  left: 50%;
+  max-height: 90%;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+  position: fixed;
+  transform: translate(-50%, 50%);
+}
+
+.modal-header {
+  font-weight: 500;
+  margin-bottom: 0;
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 0 2rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  margin: 1rem auto 0;
+  padding: 0.5rem 2rem;
+}
+
+.modal-btn {
+  border-radius: 0.2rem;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  outline: 0;
+  padding: 1rem 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-in-out;
+}
