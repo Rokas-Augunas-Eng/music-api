@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./TopBar.css";
 
-export default function TopBar({ code }) {
+export default function TopBar() {
   return (
     <div className="top-bar">
       <div className="top-bar-container">
@@ -11,7 +11,7 @@ export default function TopBar({ code }) {
           Home
         </Link>
 
-        <Link to={"/search"} className="top-bar-link" code={code}>
+        <Link to={"/search"} className="top-bar-link">
           Search Tracks
         </Link>
       </div>

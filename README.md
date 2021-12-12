@@ -1,41 +1,68 @@
-### Objective
+# Anagram-Solver
 
-SaltPay is branching into the music business and needs a new website. Build it using JavaScript and React.
+## Table of Contents
 
-### Brief
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Results](#results)
+- [Improvements](#improvements)
 
-In a fictional world, SaltPay is branching into the music business and we need a new a website. This website needs to display the top 100 songs based on the iTunes API. This code challenge allows you to choose your own path and lets you flaunt your creative panache and technical skills along the way.
+## General info
 
-### Tasks
+A website that displays top albums, which can be liked and previewed. Additionally, a search feature has been introduced to search for songs and albums. The app uses React and Node.
 
-- Implement assignment using:
-  - Language: **JavaScript**
-  - Framework: **React**
-- Show top 100 albums based on the json feed here: `https://itunes.apple.com/us/rss/topalbums/limit=100/json`
-- A clean modern look
-- A good user experience
-- Allow the top 100 to be searchable
-- Surprise us! Add a feature that you think would work well here (for instance, advanced search, integration with other API, a "Favorite" functionality)
-  - Describe the feature in separate markdown file
+## Technologies
 
-### Deliverables
+Project is created with:
 
-Make sure to include all source code in the repository.
+- Node version: v14.15.5
+- React version: v17.0.2
+- Visual Studio Code version: 1.62
+- Windows OS: Windows_NT x64 19043.1237
 
-### Evaluation Criteria
+## Setup
 
-- **JavaScript** best practices
-- We're looking for you to produce working code, with enough room to demonstrate how to structure components in a small program.
-- Show us your work through your commit history
-- Completeness: did you complete the features?
-- Correctness: does the functionality act in sensible, thought-out ways?
-- Maintainability: is it written in a clean, maintainable way?
-- Testing: is the system adequately tested?
+### Installing Node
 
-### CodeSubmit
+To run this project, download and install Node from Node.js website (https://nodejs.org/en/)
 
-Please organize, design, test and document your code as if it were going into production - then push your changes to the master branch. After you have pushed your code, you may submit the assignment on the assignment page.
+### Quick Start
 
-All the best and happy coding,
+To install dependencies, run the following in the terminal:
 
-The SaltPay Team
+```
+npm install
+```
+
+To start the server (backend). Run the following:
+
+```
+cd backend/
+node server.js
+```
+
+To start React (frontend) on http://localhost:3000/. Run the following:
+
+```
+cd frontend/
+yarn start
+```
+
+## Results
+
+Albums are displayed in cards.
+
+![Result](images/albums.PNG "Albums")
+
+A search function allows to sort through artists, albums or year.
+
+![Result](images/albums-search.PNG "Result by Search")
+
+A search function allows to search for songs and albums.
+
+![Result](images/spotify.PNG "Result by Search")
+
+## Improvements
+
+- To take this website further, I recommend implementing a full authentication feature between links. Currently, when browsing between 'search tracks' and 'home' for the second time, the authentication token is not passed.

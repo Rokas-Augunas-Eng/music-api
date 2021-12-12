@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import AlbumList from "../components/music/AlbumList";
 import Topbar from "../components/shared/TopBar";
 
-export default function Albums({ code }) {
+export default function Albums() {
   const [loadedAlbums, setLoadedAlbums] = useState([]);
 
   useEffect(() => {
