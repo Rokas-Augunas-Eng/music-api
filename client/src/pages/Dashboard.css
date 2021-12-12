@@ -1,22 +1,47 @@
+.dashboard-container {
+  margin: 1rem 0;
+}
 .dashboard-search-container {
-  height: 10vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: white;
+  border-radius: 2rem;
+  padding: 0.4rem;
+  margin: 0 auto;
+  width: 20rem;
 }
 
 .dashboard-search {
-  width: 20rem;
   height: 3rem;
   padding: 0 1rem;
   border-radius: 2rem;
   border: none;
+  background: none;
+  outline: none;
+  color: #e84118;
   font-size: 1.2rem;
+}
+
+.dashboard-search-btn {
+  color: #e84118;
+  float: right;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
 
 ::placeholder {
   color: #a1a1a1;
+}
+
+.dashboard-search-results {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  width: 30rem;
+  cursor: pointer;
 }
 
 .dashboard-player {

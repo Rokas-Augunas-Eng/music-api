@@ -32,7 +32,6 @@ export default function AlbumItem(props) {
               </div>
               <button
                 onClick={openModal}
-                className=""
                 type="button"
                 className="album-item-btn"
               >

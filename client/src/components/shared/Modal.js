@@ -16,17 +16,21 @@ export default function Modal({ setShowModal, props }) {
           e.stopPropagation();
         }}
       >
-        <div className="modal-image">
-          <img src={props.image} alt="" />
-        </div>
-
-        <div className="modal-image-text-container">
-          <div className="modal-item-album-name">{props.albumName}</div>
-          <div className="modal-item-artist">{props.artist}</div>
-          <div className="modal-item-category-year-container">
-            {props.category} · {props.year}
+        <div className="modal-wrapper">
+          <div className="modal-image">
+            <img src={props.image} alt="" />
           </div>
-          <div className="modal-item-song-count">{props.songCount}</div>
+
+          <div className="modal-image-text-container">
+            <div className="modal-item-album-name">{props.albumName}</div>
+            <div className="modal-item-artist">{props.artist}</div>
+            <div className="modal-item-category-year-container">
+              {props.category} · {props.year}
+            </div>
+            <div className="modal-item-song-count">
+              Track count: {props.songCount}
+            </div>
+          </div>
         </div>
         <div className="modal-button-container">
           <button className="modal-btn" onClick={closeModal} type="button">

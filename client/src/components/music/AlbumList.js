@@ -5,7 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import AlbumItem from "./AlbumItem";
 import "./AlbumList.css";
 
-export default function AlbumList({ loadedAlbums, code }) {
+export default function AlbumList({ loadedAlbums }) {
   const [query, setQuery] = useState("");
 
   const getFilteredItems = (query, items) => {
@@ -49,7 +49,6 @@ export default function AlbumList({ loadedAlbums, code }) {
               year={album["im:releaseDate"].label.slice(0, 4)}
               image={album["im:image"][2].label}
               songCount={album["im:itemCount"].label}
-              code={code}
             />
           ))}
         </ul>

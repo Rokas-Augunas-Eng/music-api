@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
+import SearchIcon from "@mui/icons-material/Search";
 
 import useAuth from "../components/shared/useAuth";
 import TrackList from "../components/music/TrackList";
 import Player from "../components/music/Player";
 import "./Dashboard.css";
+import TopBar from "../components/shared/TopBar";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "9531b419420d41b68c547839eda55aa5",
 });
 
 export default function Dashboard({ code }) {
-  console.log(code);
   const accessToken = useAuth(code);
-  const [search, setSearch] = useState("");
+  const [text, setText] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
 
   function chooseTrack(track) {
     setPlayingTrack(track);
-    // setSearch("");
   }
 
   useEffect(() => {
@@ -28,11 +28,11 @@ export default function Dashboard({ code }) {
   }, [accessToken]);
 
   useEffect(() => {
-    if (!search) return setSearchResults([]);
+    if (!text) return setSearchResults([]);
     if (!accessToken) return;
 
     let cancel = false;
-    spotifyApi.searchTracks(search).then((res) => {
+    spotifyApi.searchTracks(text).then((res) => {
       if (cancel) return;
       setSearchResults(
         res.body.tracks.items.map((track) => {
@@ -55,26 +55,40 @@ export default function Dashboard({ code }) {
     });
 
     return () => (cancel = true);
-  }, [search, accessToken]);
+  }, [text, accessToken]);
 
   return (
     <div>
-      <div className="dashboard-search-container">
-        <input
-          type="search"
-          placeholder="Search Songs/Artists"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="dashboard-search"
-        />
-      </div>
-      <div className="dashboard-search-results">
-        {searchResults.map((track) => (
-          <TrackList track={track} key={track.uri} chooseTrack={chooseTrack} />
-        ))}
-      </div>
-      <div className="dashboard-player">
-        <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
+      <TopBar />
+      <div className="dashboard-container">
+        <div className="dashboard-search-container">
+          <input
+            type="text"
+            placeholder="Search Songs/Artists"
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            className="dashboard-search"
+          />
+          <div className="dashboard-search-container">
+            <SearchIcon
+              className="dashboard-search-btn"
+              style={{ fontSize: 40 }}
+            />
+          </div>
+        </div>
+
+        <div className="dashboard-search-results">
+          {searchResults.map((track) => (
+            <TrackList
+              track={track}
+              key={track.uri}
+              chooseTrack={chooseTrack}
+            />
+          ))}
+        </div>
+        <div className="dashboard-player">
+          <Player accessToken={accessToken} trackUri={playingTrack?.uri} />
+        </div>
       </div>
     </div>
   );

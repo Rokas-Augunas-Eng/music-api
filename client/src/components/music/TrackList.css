@@ -1,0 +1,42 @@
+.track-container {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+
+.track-image img {
+  border-radius: 1rem;
+}
+
+.track-text-container {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.track-title {
+  font-weight: 600;
+  color: #e84118;
+}
+
+.track-artist {
+  font-weight: 600;
+  color: grey;
+}
+
+.track-play-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 1rem;
+  padding: 0.5rem;
+}
+
+.track-play-icon {
+  color: #e84118;
+}

@@ -1,0 +1,27 @@
+.top-bar {
+  height: 4rem;
+  display: flex;
+  background-color: #e9c46a;
+}
+
+.top-bar-container {
+  width: 15rem;
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.top-bar-link {
+  padding: 0.8rem;
+  text-decoration: none;
+  border-radius: 1rem;
+  color: white;
+  background: #e84118;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.top-bar-link:hover {
+  transform: scale(1.05);
+}
