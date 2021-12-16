@@ -20,7 +20,7 @@ export default function Albums() {
 
   return (
     <div>
-      <Topbar code={code} />
+      <Topbar />
       <AlbumList loadedAlbums={loadedAlbums} />
     </div>
   );

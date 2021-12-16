@@ -24,6 +24,8 @@ export default function useAuth(code) {
 
   useEffect(() => {
     if (!refreshToken || !expiresIn) return;
+    // When the access token expires or changes the below gets ran, even before we have an acess token
+    // sewtInterval everytime the access token expires
     const interval = setInterval(() => {
       axios
         .post("http://localhost:3001/refresh", {
@@ -36,8 +38,8 @@ export default function useAuth(code) {
         .catch(() => {
           window.location = "/";
         });
-    }, (expiresIn - 60) * 1000);
-
+    }, (expiresIn - 60) * 1000); //coverts seconds into miliseconds;
+    // if there is an error we can clear the timeout
     return () => clearInterval(interval);
   }, [refreshToken, expiresIn]);
 

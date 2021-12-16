@@ -6,6 +6,7 @@ import Login from "./components/shared/Login";
 import NotFound from "./pages/NotFound";
 import Dashboard from "./pages/Dashboard";
 
+// GET URL PARAM CALLED CODE
 const code = new URLSearchParams(window.location.search).get("code");
 
 export default function App() {
@@ -13,10 +14,11 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={code ? <Albums code={code} /> : <Login />} />
-        <Route
+        {/* <Route
           path="/search"
           element={code ? <Dashboard code={code} /> : <Login />}
-        />
+        /> */}
+        <Route path="/search" element={<Dashboard code={code} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

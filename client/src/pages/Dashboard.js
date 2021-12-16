@@ -18,19 +18,22 @@ export default function Dashboard({ code }) {
   const [searchResults, setSearchResults] = useState([]);
   const [playingTrack, setPlayingTrack] = useState();
 
-  function chooseTrack(track) {
+  const chooseTrack = (track) => {
     setPlayingTrack(track);
-  }
+  };
 
   useEffect(() => {
     if (!accessToken) return;
     spotifyApi.setAccessToken(accessToken);
+    // whenb accessToken changes
   }, [accessToken]);
 
+  // searching
   useEffect(() => {
     if (!text) return setSearchResults([]);
     if (!accessToken) return;
 
+    // cancel request everytime you type
     let cancel = false;
     spotifyApi.searchTracks(text).then((res) => {
       if (cancel) return;
@@ -38,6 +41,7 @@ export default function Dashboard({ code }) {
         res.body.tracks.items.map((track) => {
           const smallestAlbumImage = track.album.images.reduce(
             (smallest, image) => {
+              // if the current image is smaller than the smallest set that as a smallest iamge
               if (image.height < smallest.height) return image;
               return smallest;
             },
@@ -53,7 +57,7 @@ export default function Dashboard({ code }) {
         })
       );
     });
-
+    // make the request and if a new request is made in that time period, we will set the cancel for the previous request to true, which will cancel the request on line 39
     return () => (cancel = true);
   }, [text, accessToken]);
 
