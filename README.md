@@ -1,4 +1,4 @@
-# Anagram-Solver
+# Music API
 
 ## Table of Contents
 
